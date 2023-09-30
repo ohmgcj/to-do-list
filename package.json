@@ -1,0 +1,26 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "lista a fazeres, iniciação a React / Backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ohmgcj/to-do-list.git"
+  },
+  "author": "Caio Alves Godoy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ohmgcj/to-do-list/issues"
+  },
+  "homepage": "https://github.com/ohmgcj/to-do-list#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

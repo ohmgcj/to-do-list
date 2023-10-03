@@ -1,34 +1,74 @@
 const express = require('express') 
-const uuid = require('uuid')
+const uuid = require('uuid') // Biblioteca para a randomização de IDs
+const postgres = require('postgres')
 
 const app = express()
 app.use(express.json()) // Faz o sistema entender o json
 
-const PORT = 3333
-let DATA_BASE = []
+const sql = postgres('postgres://postgres:caio1212@localhost:5432/to_do')
 
-app.get('/', (req, res) => {
+const PORT = 3333
+let DATA_BASE = [] //Database local temporária
+
+
+async function createList(status, title, desc) {
+    console.log(status, title, desc)
+    try {
+        const created = await sql`
+        INSERT INTO list (status_id, title, description)
+        VALUES
+            (${status}, ${title}, ${desc})
+        RETURNING *; 
+    ` 
+    return created[0]; // Retorna o primeiro registro inserido
+    } catch (error) {
+        return error;
+    }
+}
+
+async function searchList() {
+    try {
+        const search = await sql`
+        SELECT 
+            l.title, l.description, s.name
+        FROM list AS l
+        INNER JOIN status AS s
+        ON l.status_id = s.id;
+    ` 
+    return search; 
+    } catch (error) {
+        return error;
+    }
+}
+
+
+
+app.get('/', async (req, res) => { 
+    const result = await searchList()
+
     res.status(200).json({
         status: 200,
         message: "Success",
         data: {
-            todo: DATA_BASE
+            todo: result
         }
     })
 })
 
-app.post('/', (req, res) => {
-    const payload = req.body
+app.post('/', async (req, res) => {
+    const payload = req.body // Pega os dados passados pelo usuário
 
-    DATA_BASE.push({
-        ...payload,
-        id: uuid.v4()
-    })
+    const result = await createList(
+        payload.status_id, 
+        payload.title,
+        payload.description
+    )
+
     return res.status(201).json({
         status: 201,
         message: "Created",
         data: {
-            todo: payload
+            todo: result
         }
     })
 })

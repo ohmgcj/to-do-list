@@ -1,0 +1,293 @@
+/* ==== HTML Reset ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.container {
+  background-color: #fafafa;
+  max-height: 100vh;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(233, 146, 228, 0.404), #dedede), url("/frontend/public/images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.containerForm {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;
+
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.textInput {
+  width: 100%;
+  border: 0;
+  outline: none;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  height: 50px;
+  padding-left: 10px;
+  border-radius: 6px 0 0 6px;
+  box-shadow: 7px 6px 17px -4px rgba(33,32,32,0.64);
+  -webkit-box-shadow: 7px 6px 17px -4px rgba(33,32,32,0.64);
+  -moz-box-shadow: 7px 6px 17px -4px rgba(33,32,32,0.64);
+}
+
+.contentInput {
+  box-shadow: none;
+  border-radius: 0;
+  font-size: large;
+  margin: 0;
+}
+
+.containerList {
+  background-color: white;
+  border-radius: 6px;
+}
+
+.cardList {
+  display: flex;
+  padding: 20px 15px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.content {
+  margin-left: 20px;
+}
+
+.content select {
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f2f2f2;
+  outline: none;
+  border: 0;
+}
+
+.content option {
+  background-color: #fff;
+}
+
+.baseShadow {
+  box-shadow: 7px 6px 17px -4px rgba(33,32,32,0.64);
+  -webkit-box-shadow: 7px 6px 17px -4px rgba(33,32,32,0.64);
+  -moz-box-shadow: 7px 6px 17px -4px rgba(33,32,32,0.64);
+}
+
+/* ==== Input Container ==== */
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+}
+
+.button--submit {
+  min-height: 50px;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  background-color: #5e4dcd;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+}
+
+/* ==== Botões do CRUD ==== */
+
+.buttonsCrud {
+  display: flex;
+  align-items: center;
+}
+
+.buttonMove {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+  margin: 0px 5px;
+}
+
+.svgIcon {
+  width: 17px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.delBtn:hover {
+  width: 120px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+}
+
+.editBtn:hover {
+  width: 120px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(255, 190, 69);
+  align-items: center;
+}
+
+.delBtn:hover .svgIcon {
+  width: 20px;
+  transition-duration: 0.3s;
+}
+
+.editBtn:hover .svgIcon {
+  width: 20px;
+  transition-duration: 0.3s;
+}
+
+.delBtn::before {
+  display: none;
+  content: "Deletar";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.editBtn::before {
+  display: none;
+  content: "Editar";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.delBtn:hover::before {
+  display: block;
+  padding-right: 10px;
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition-duration: 0.3s;
+}
+
+.editBtn:hover::before {
+  display: block;
+  padding-right: 10px;
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition-duration: 0.3s;
+}
+
+/* ==== Checkmark ==== */
+
+/* Hide the default checkbox */
+.containerCheck input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+ }
+ 
+ .containerCheck {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+ }
+ 
+ /* Create a custom checkbox */
+ .containerCheck {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background: #606062;
+  border-radius: 7px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.30), 0px 1px 1px rgba(0,5);
+ }
+ 
+ /* When the checkbox is checked, add a blue background */
+ .containerCheck input:checked ~ .checkmark {
+  background-image: linear-gradient(#255CD2,#1D52C1)
+ }
+ 
+ /* Create the checkmark/indicator (hidden when not checked) */
+ .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+ }
+ 
+ /* Show the checkmark when checked */
+ .containerCheck input:checked ~ .checkmark:after {
+  display: block;
+ }
+ 
+ /* Style the checkmark/indicator */
+ .containerCheck .checkmark:after {
+  left: 0.45em;
+  top: 0.20em;
+  width: 0.24em;
+  height: 0.6em;
+  border: solid white;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+ }
+
+ /* ==== TOAST MESSAGE ==== */
+ .toast {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.toast-content {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}

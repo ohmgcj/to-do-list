@@ -1,8 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const routes = require('./routes');
 
 const app = express();
 app.use(express.json()); // Faz o sistema entender o json
+app.use(cors({
+  origin: '*',
+}));
 
 const PORT = 3333;
 

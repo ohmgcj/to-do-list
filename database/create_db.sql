@@ -26,3 +26,21 @@ VALUES
 INSERT INTO list (status_id, title, description)
 VALUES
     (1, "Limpar", "Limpar a casa amanhã as 08");
+
+CREATE TABLE roles (
+  id SERIAL PRIMARY KEY,
+  "name" VARCHAR(30)
+);
+
+INSERT INTO roles (name)
+VALUES 
+    ('reader'),
+    ('creator');
+
+CREATE TABLE user (
+  id SERIAL PRIMARY KEY,
+  role_id INT,
+  "name" VARCHAR(100),
+  "password" char(50),
+  FOREIGN KEY (role_id) REFERENCES roles(id)
+);

@@ -1,6 +1,4 @@
-const postgres = require('postgres');
-
-const sql = postgres('postgres://postgres:caio1212@localhost:5432/to_do');
+const sql = require('../../database/connection');
 
 async function searchList() {
   try {
